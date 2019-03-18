@@ -1,0 +1,22 @@
+{
+  "name": "webpack-mobx-router-antd",
+  "version": "1.0.0",
+  "description": "react + mobx + react-router + antd +  ## 项目启动 ```",
+  "main": "babel.config.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shuaiadong/webpack-mobx-router-antd.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shuaiadong/webpack-mobx-router-antd/issues"
+  },
+  "homepage": "https://github.com/shuaiadong/webpack-mobx-router-antd#readme"
+}
