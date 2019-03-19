@@ -19,6 +19,16 @@ let basePath = config.basePath;
         path: path.resolve(__dirname, basePath, 'dist')
     },
 
+    resolve: {
+        alias: { // 别名
+            utils: path.resolve(__dirname, basePath, 'src/utils'),
+            src:   path.resolve(__dirname, basePath, 'src'),
+            img:   path.resolve(__dirname, basePath, 'src/pubilc/img'),
+            mobx:  path.resolve(__dirname, basePath, 'node_modules/mobx/lib/mobx.es6.js'),
+            comps:  path.resolve(__dirname, basePath, 'src/components') // 体积最小的 ES6 构建
+        }
+    },
+
     // 插件
     plugins: [
         // @2.0.1 默认 output.path
@@ -33,6 +43,19 @@ let basePath = config.basePath;
             // minify: {
             // }
         })
-    ]
+    ],
+
+    // module
+    module: {
+        rules: [
+            // js
+            {
+                test: /\.js$/,
+                use: ['babel-loader'],
+                exclude: /node_modules/, 
+                include: path.resolve(__dirname, basePath, 'src')
+            }
+        ]
+    }
 }
 module.exports = webpackBaseConfig;
