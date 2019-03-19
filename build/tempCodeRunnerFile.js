@@ -2,11 +2,11 @@ const path = require('path');
 const config = require( './config.js');
 
 let basePath = config.basePath;
- const webpackBaseConfig = {
+module.exports = {
     
     // 入口
-    entry: {
-        index: [path.resolve(__dirname, basePath, 'src/index.js')],
+    entey: {
+        index: [],
     },
     
     // 输出
@@ -16,4 +16,3 @@ let basePath = config.basePath;
         path: path.resolve(__dirname, basePath, 'dist/dev')
     }
 }
-module.exports = webpackBaseConfig;
