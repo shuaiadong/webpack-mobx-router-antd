@@ -4,6 +4,7 @@
 > polyfill | runtime 转换 低版本不兼容的 API（、Set、Maps、Proxy）
 
 ### browserslist -> https://github.com/browserslist/browserslist  (json or js)
+- https://juejin.im/post/5b8cff326fb9a019fd1474d6
 - babel-loader@8 
 - 核心 @babel/core
 - 预设preset(babel 预设plugin的集合)
@@ -16,7 +17,7 @@
     - @babel/preset-react [4个react包 + 1个utils](https://github.com/babel/babel/blob/master/packages/babel-preset-react/package.json)
     - @babel/preset-env  [很多包。。。。](https://github.com/babel/babel/blob/master/packages/babel-preset-env/package.json)
 ```
-    
+    [@babel/preset-env - ](https://www.jianshu.com/p/000c2670672b)
 
       ['@babel/preset-env',{
             tragets: {

@@ -14,9 +14,9 @@ let basePath = config.basePath;
     
     // 输出
     output: {
-        filename: '[name].dev.js',
+        filename: 'js/[name].dev.js',
         chunkFilename: '[name].chunk.js',
-        path: path.resolve(__dirname, basePath, 'dist')
+        path: path.resolve(__dirname, basePath, 'dist/')
     },
 
     resolve: {
@@ -33,13 +33,13 @@ let basePath = config.basePath;
     plugins: [
         // @2.0.1 默认 output.path
         new CleanWebpackPlugin({
-            // dry: true,
+            dry: true,
         }),
 
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, basePath, config.htmlTemplate),
             filename: 'index.html',
-            path: path.resolve(__dirname, basePath, 'dist'),
+            path: path.resolve(__dirname, basePath, 'dist/'),
             // minify: {
             // }
         })

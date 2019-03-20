@@ -2,7 +2,7 @@ module.exports = function (api) {
 
     const env = api.env();
     
-    api.cache(false);
+    api.cache(true);
     
     const presets = [
         ['@babel/preset-env', {
@@ -26,7 +26,7 @@ module.exports = function (api) {
 
 
 console.log(babelConfig);
-console.log('================================================babel' + env + '=========');
+console.log('================================================babel ----' + env + '=========');
     
 
 
