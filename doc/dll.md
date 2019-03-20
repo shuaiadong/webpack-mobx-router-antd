@@ -2,6 +2,13 @@
 [images](./img/01.png)
 
 ```js
+  output: {
+        filename: '[name].dll.js',
+        path: config.devDllPath,
+        library: '[name]' // 重要
+    },
+
+
  // 生成 manifest
   new Webpack.DllPlugin({
             // context: config.devDllContent,
@@ -12,7 +19,7 @@
 
    // 引入 manifest
     new Webpack.DllReferencePlugin({
-        manifest:  require(`./vendor-manifest.json`))
+        manifest:  require(`./vendor-manifest.json`)) // 重要
     })
 ```
 ## todo html 注入 vendor? 
