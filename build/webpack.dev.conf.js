@@ -1,28 +1,38 @@
-const baseConfig = require('./webpack.base.js');
-const merge = require('webpack-merge');
-const config = require('./config');
-const Webpack = require('webpack');
-const addAsseHtmlWebpackPlugin = require('add-asset-html-webpack-plugin');
 const path = require('path');
 
-let dllPlugins = Object.keys(config.dllEntry);
-dllPlugins = dllPlugins && dllPlugins.map(item =>
-    new Webpack.DllReferencePlugin({
-        manifest:  require(path.join(config.devDllPath, `${item}-manifest.json`))
-    })
-    );
+const baseConfig = require('./webpack.base.js');
+const config = require('./config');
+
+const Webpack = require('webpack');
+const merge = require('webpack-merge');
+
 
 const webpackDev = {
     mode: 'development',
 
-    plugins: dllPlugins.concat([
+    plugins: getDllPluginsArray().concat([
         // todo
-        new addAsseHtmlWebpackPlugin([
-            {filepath:path.resolve(__dirname, '../dist/dev-dll/vendor.dll.js')}
-        ])
+       
     ])
 }
 console.log('dev =================================================================================== 配置')
-// console.log(merge(baseConfig, webpackDev));
+console.log(merge(baseConfig({mode: 'development'}), webpackDev));
 console.log('dev =================================================================================== 配置')
-module.exports = merge(baseConfig, webpackDev);
+
+module.exports = merge(baseConfig({mode: 'development'}), webpackDev);
+
+
+
+function getDllPluginsArray() {
+
+    let dllPlugins = Object.keys(config.dllEntry);
+
+    dllPlugins = dllPlugins && dllPlugins.map(item =>
+
+        new Webpack.DllReferencePlugin({
+            manifest: require(path.join(config.devDllPath, `${item}-manifest.json`))
+        })
+    );
+
+    return dllPlugins;
+}

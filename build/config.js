@@ -4,6 +4,7 @@ const config = {
     basePath: '../',
     htmlTemplate: 'src/template/index.html',
     devDllPath: path.resolve(__dirname, '../dist/dev-dll/'),
+    prodDllPath: path.resolve(__dirname, '../dist/prod-dll/'),
     dllEntry: {
         vendor: [
             'react', 'react-dom',

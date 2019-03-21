@@ -7,4 +7,4 @@ const webpackDev = {
     // oneOf
 }
 
-module.exports = merge(baseConfig, webpackDev)
+module.exports = merge(baseConfig({ mode: 'production'}), webpackDev)

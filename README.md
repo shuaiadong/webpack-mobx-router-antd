@@ -1,8 +1,15 @@
 # webpack-mobx-router-antd - SPA
 ## 技术栈 
-react + mobx + react-router + antd + 
+react + mobx + react-router + antd
 ## 项目启动
 ```
+    npm i 
+
+    npm dll
+    
+    npm server
+
+    npm build
 
 
 ```
@@ -27,6 +34,10 @@ react + mobx + react-router + antd +
 
 - <input checked disabled type="checkbox"/> 项目结构
 - <input checked disabled type="checkbox"/> babel
-- <input checked disabled type="checkbox"/> css
-- <input checked disabled type="checkbox"/> png | svg | 
-- <input checked disabled type="checkbox"/> 
+
+- <input checked  type="checkbox"/> dll
+
+- <input checked  type="checkbox"/> less css
+- <input checked  type="checkbox"/> png | svg | 
+- <input checked  type="checkbox"/>  antd
+- <input checked  type="checkbox"/>  

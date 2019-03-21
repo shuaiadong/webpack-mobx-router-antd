@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --config build/webpack.dev.conf.js",
-    "dll": "webpack --config build/webpack.dll.js",
+    "dll": "node build/webpack.dll.js",
     "server": "webpack-dev-server --config ./build/webpack.dev.conf.js",
     "build": "webpack --config build/webpack.prod.conf.js"
   },
@@ -36,6 +36,7 @@
     "babel-loader": "^8.0.5",
     "clean-webpack-plugin": "^2.0.1",
     "html-webpack-plugin": "^3.2.0",
+    "uglifyjs-webpack-plugin": "^2.1.2",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.2.1",
