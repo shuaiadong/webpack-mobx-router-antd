@@ -1,0 +1,7 @@
+body {
+    background-color: #f40;
+}
+:local(.a) {
+    
+        background-color: #fff;
+}

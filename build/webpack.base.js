@@ -4,6 +4,7 @@ const config = require( './config.js');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const addAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 
 let basePath = config.basePath;
@@ -46,6 +47,9 @@ let basePath = config.basePath;
                  dry: true,
              }),
 
+             new MiniCssExtractPlugin({
+                 filename: '[name].css',
+             }),
              new HtmlWebpackPlugin({
                  template: path.resolve(__dirname, basePath, config.htmlTemplate),
                  filename: 'index.html',
@@ -71,7 +75,37 @@ let basePath = config.basePath;
                      include: path.resolve(__dirname, basePath, 'src')
                  },
                  
-                 // less -css -style
+                // less
+                {
+                    test: /\.(css|less)$/,
+                    use: [
+                        {
+                            loader: 'style-loader/useable',
+                            options: {
+                                sourceMap: true,
+                                singleton: true, // 多个style合成一个style
+                                // transform: require('./css-replace.js')
+                            }
+                        },
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                // importLoaders: 1,
+                                sourceMap: true,
+                                modules: true,
+                                localIdentName: '[path]_[local]_[name]-[hash:base64:5]', // 名字规则
+                            }
+                        },
+                        {
+                            loader: 'less-loader',
+                            options: {
+                                sourceMap: true,
+                            }
+                        }
+
+                    ]
+                }
+
              ]
          }
      }
