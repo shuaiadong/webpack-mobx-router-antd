@@ -15,7 +15,19 @@
 
 ```
 ### postcss
+> cnpm i postcss postcss-loader autoprefixer -D
+```
 
+
+
+	"browserslist": [
+	"> 1%",
+	"last 2 versions"
+  	]
+
+
+ // https://www.jianshu.com/p/d511c8e363e5
+```
 ### css-loader
 ```
 	{
@@ -94,6 +106,20 @@ js-to-less-var-loader js变量转化为less变量
 
 
 ##  css-loader 优化
+// 消除冗余css
+purifycss-webpack
+purify-css
+```
+ const glob = require('glob')
+    const PurifyCssPlugin = require('purifycss-webpack')
+    plugins: [
+      new PurifyCssPlugin ({
+          paths: glob.sync(path.join(__dirname, '/*.html'))
+      })
+    ]
+
+
+```
 cssnano 优化代码
 去重
 
@@ -104,3 +130,4 @@ https://www.jianshu.com/p/f9bf1cb7a5a9
 
 文章
 https://blog.csdn.net/lsvtogergo/article/details/84959009
+css 去重复 - 消除没用的 https://www.jianshu.com/p/dd9afa5c4d0f

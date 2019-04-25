@@ -8,10 +8,10 @@ export default class App extends Component {
     
     
     render () {
+        base.use()
         return <div className={base.locals.comp}>
         
-        <p className="a">
-        app1
+        <p className={base.locals.a}>
                 </p>
         </div>
     }

@@ -4,8 +4,7 @@ const config = require( './config.js');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const addAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
+const Min = require('mini-css-extract-plugin');
 
 let basePath = config.basePath;
  const webpackBaseConfig = ({
@@ -18,7 +17,7 @@ let basePath = config.basePath;
 
      return {
 
-         // 入口
+        // 入口
          entry: {
              index: [path.resolve(__dirname, basePath, 'src/index.js')],
          },
@@ -47,9 +46,6 @@ let basePath = config.basePath;
                  dry: true,
              }),
 
-             new MiniCssExtractPlugin({
-                 filename: '[name].css',
-             }),
              new HtmlWebpackPlugin({
                  template: path.resolve(__dirname, basePath, config.htmlTemplate),
                  filename: 'index.html',
@@ -90,11 +86,13 @@ let basePath = config.basePath;
                         {
                             loader: 'css-loader',
                             options: {
-                                // importLoaders: 1,
                                 sourceMap: true,
                                 modules: true,
                                 localIdentName: '[path]_[local]_[name]-[hash:base64:5]', // 名字规则
                             }
+                        },
+                        {
+                            loader: 'postcss-loader'
                         },
                         {
                             loader: 'less-loader',
