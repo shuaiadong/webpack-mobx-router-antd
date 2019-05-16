@@ -3,6 +3,8 @@ const path = require('path');
 const baseConfig = require('./webpack.base.js');
 const config = require('./config');
 
+const Mocker = require('webpack-api-mocker');
+
 const Webpack = require('webpack');
 const merge = require('webpack-merge');
 
@@ -11,7 +13,7 @@ const webpackDev = {
     mode: 'development',
     devServer: {
         proxy: {
-            '/': {
+            '/comments': {
                 target: 'https://m.weibo.cn', // 目标地址
                 changeOrigin: true,            // * 
                 logLevel: 'debug',             // 控制台日志
@@ -24,16 +26,17 @@ const webpackDev = {
                 }
             }
         },
-        after: function(app, server) {
-            console.log(app, server)
-          },
         before: function (app) {
-            app.get('/success', (res, req)=> {
-                console.log(res, req)
-                req.json({
-                    a:' 1'
-                })
+            // mock .js
+            Mocker(app, path.join(__dirname, config.basePath, '/server/mock/api.js'), {
+                // 请求线上数据  | mock切换
             })
+            // 1. 直接写 请求
+            // app.get('/success', (res, req)=> {
+            //     req.json({
+            //         a:' 1'
+            //     })
+            // })
         }
     },
     plugins: getDllPluginsArray().concat([

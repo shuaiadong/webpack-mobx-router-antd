@@ -10,6 +10,7 @@ export default class App extends Component {
     componentDidMount() {
         axios.get('/comments/hotflow?id=4372148896377528&mid=4372148896377528&max_id_type=0')
         axios.get('/success')
+        axios.post('/user') // 请求的mock
     }
 
     render () {
