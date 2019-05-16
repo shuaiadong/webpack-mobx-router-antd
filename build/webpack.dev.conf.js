@@ -9,7 +9,33 @@ const merge = require('webpack-merge');
 
 const webpackDev = {
     mode: 'development',
-
+    devServer: {
+        proxy: {
+            '/': {
+                target: 'https://m.weibo.cn', // 目标地址
+                changeOrigin: true,            // * 
+                logLevel: 'debug',             // 控制台日志
+                pathRewrite: {
+                    '^/comments': '/comments'  // 重定向
+                },
+                headers: {
+                    'Cookie': 'zhonghuidong=11',
+                    'is-Dev': '22222'
+                }
+            }
+        },
+        after: function(app, server) {
+            console.log(app, server)
+          },
+        before: function (app) {
+            app.get('/success', (res, req)=> {
+                console.log(res, req)
+                req.json({
+                    a:' 1'
+                })
+            })
+        }
+    },
     plugins: getDllPluginsArray().concat([
         // todo
        

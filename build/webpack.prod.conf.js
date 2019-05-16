@@ -6,7 +6,7 @@ const baseConfig = require('./webpack.base.js');
 const merge = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const webpackDev = {
+const webpackProd = {
     mode: 'production',
     bail: true, // 打包出现任何错就终止
     plugins: [
@@ -16,4 +16,4 @@ const webpackDev = {
     ]
     // oneOf
 }
-module.exports = merge(baseConfig({ mode: 'production'}), webpackDev)
+module.exports = merge(baseConfig({ mode: 'production'}), webpackProd)
