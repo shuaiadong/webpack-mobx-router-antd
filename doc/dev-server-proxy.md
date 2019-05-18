@@ -23,4 +23,24 @@
             }
         }
 
-// mock
+cnpm install 
+express 
+opn 
+webpack-dev-middleware 
+webpack-hot-middleware 
+http-proxy-middleware 
+connect-history-api-fallback 
+- History，它将把请求定位到你指定的索引文件(默认为/index.html -
+-D
+
+/**
+ * node 在那个dir 下执行有关
+ *      与执行文件的路径无关
+ * 
+ * 1.   node ./server/dev-server/index.js
+ *      - > /Users/v_zhonghuidong/zhong_statuc/webpack-mobx-router-antd
+ * 2.   cd server/dev-server  执行node ./index.js
+ *      - > /Users/v_zhonghuidong/zhong_statuc/webpack-mobx-router-antd/server/dev-server
+ * 
+ * express.static('dist') 的静态资源要根据 process.cwd() 来设定
+ */

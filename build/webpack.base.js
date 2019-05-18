@@ -5,6 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const addAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin');
 const Min = require('mini-css-extract-plugin');
+const webpack = require('webpack');
 
 let basePath = config.basePath;
  const webpackBaseConfig = ({
@@ -44,6 +45,12 @@ let basePath = config.basePath;
              // @2.0.1 默认 output.path
              new CleanWebpackPlugin({
                  dry: true,
+             }),
+             new webpack.ProvidePlugin({
+                axios: 'axios'
+             }),
+             new webpack.DefinePlugin({
+                DEV: env === 'development' ? 'true' : 'false'
              }),
 
              new HtmlWebpackPlugin({
